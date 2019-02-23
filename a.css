@@ -1,0 +1,64 @@
+body{
+    background: black;
+    color:white;
+    margin: 0;
+}
+a{
+    color:inherit;  /*继承爸爸的颜色*/
+    text-decoration: none;  /*去除a标签默认的下划线*/
+}
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.topNavBar{
+    /*padding-top: 20px;  此处只需要上间距，但是为了对称，也写了下边距
+    padding-bottom: 20px;
+    padding-left: 16px;
+    padding-right: 16px;   四个padding合一合并为一个，顺序为：padding: 上 右 下 左;*/
+    padding: 20px 16px 20px 16px;
+}
+.topNavBar>nav{
+    padding-top: 7px;
+    padding-bottom: 1px;
+}
+.topNavBar>nav>ul{
+    list-style: none; /*去除列表前的黑点*/
+    margin: 0;        /*去除列表默认样式*/
+    padding: 0;
+}
+.topNavBar>nav>ul>li{
+    float: left;         /*配合父亲的clearfix使列表横过来*/
+    margin-left: 17px;   /*导航栏的间距*/
+    margin-right: 17px;
+}
+.topNavBar>nav>ul>li>a{
+    font-size: 12px;    /*字体大小*/
+    color: #B7B7B7;   /*字体颜色*/
+    /*text-decoration: none; 因为上面的a已经去除了下划线，所以这里就不用再去除了*/
+    font-weight: bold;  /*字体加粗*/
+    border-top: 3px solid transparent;  /*透明上边框*/
+    border-bottom: 3px solid transparent;  /*透明下边框,虽然只需要透明下边框，但是为了对齐，就加上了等高透明上边框*/
+    padding-top: 5px;
+    padding-bottom: 5px;  /*5像素的内下边距，对称，所以还有5像素的内上边距*/
+    display:block;  /*使li可以包裹住a*/
+
+}
+.topNavBar>nav>ul>li>a:hover{
+    border-bottom: 3px solid #e06567;  /*粉色下边框*/
+}
+
+.topNavBar .logo{
+    font-size: 24px;  /*字体大小*/
+    padding-top: 3px;
+    padding-bottom: 4px;
+    font-family: "Arial Black"; /*文字字体*/
+}
+.topNavBar .logo .rs{
+    margin-right: 4px; /*4像素的右边距*/
+    color:#E6686A;
+}
+.topNavBar .logo .card{
+    color:#9A9DA2;
+}
