@@ -1,11 +1,26 @@
 body{
-    background: black;
-    color:white;
+    background: #efefef;
+    /*color:black; 字默认的颜色就是黑色*/
     margin: 0;
 }
 a{
     color:inherit;  /*继承爸爸的颜色*/
     text-decoration: none;  /*去除a标签默认的下划线*/
+}
+*{                    /*所有元素都不要默认边距*/
+    margin: 0px;
+    padding: 0px;
+}
+hr{
+    height: 0;
+    border: none;
+    border-top: 1px solid #DEDEDE;
+}
+ul,ol{
+    list-style: none;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
 }
 .clearfix::after{
     content: '';
@@ -17,23 +32,30 @@ a{
     padding-bottom: 20px;
     padding-left: 16px;
     padding-right: 16px;   四个padding合一合并为一个，顺序为：padding: 上 右 下 左;*/
-    padding: 20px 16px 20px 16px;
+    padding: 20px 0px 20px 0px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
 }
-.topNavBar>nav{
+.topNavBar-inner{
+    padding: 0px 16px 0px 16px;
+}
+.topNavBar nav{
     padding-top: 7px;
     padding-bottom: 1px;
 }
-.topNavBar>nav>ul{
+.topNavBar nav>ul{
     list-style: none; /*去除列表前的黑点*/
     margin: 0;        /*去除列表默认样式*/
     padding: 0;
 }
-.topNavBar>nav>ul>li{
+.topNavBar nav>ul>li{
     float: left;         /*配合父亲的clearfix使列表横过来*/
     margin-left: 17px;   /*导航栏的间距*/
     margin-right: 17px;
 }
-.topNavBar>nav>ul>li>a{
+.topNavBar nav>ul>li>a{
     font-size: 12px;    /*字体大小*/
     color: #B7B7B7;   /*字体颜色*/
     /*text-decoration: none; 因为上面的a已经去除了下划线，所以这里就不用再去除了*/
@@ -45,7 +67,7 @@ a{
     display:block;  /*使li可以包裹住a*/
 
 }
-.topNavBar>nav>ul>li>a:hover{
+.topNavBar nav>ul>li>a:hover{
     border-bottom: 3px solid #e06567;  /*粉色下边框*/
 }
 
@@ -61,4 +83,240 @@ a{
 }
 .topNavBar .logo .card{
     color:#9A9DA2;
+}
+.banner{
+    height: 515px;
+    background-image: url(./img/rs-cover-2-2-1-1.jpg);
+    background-position: center center; /*第一个center是水平居中，第二个是垂直居中*/
+    background-size: cover;
+}
+.banner .mask{
+    height: 515px;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.userCard{
+    /*border: 1px solid red; border大法！*/
+    max-width: 940px;
+    margin-left: auto;   /*这两行是居中*/
+    margin-right: auto;
+    background-color: #fff;
+    box-shadow: 0px 2px 6px 1px rgba(0,0,0,0.5);
+}
+.userCard .welcome{
+    background: #E6686A;
+    color: white;
+    display: inline-block;
+    padding: 6px 16px 6px 16px;
+    line-height: 22px;  /*明确行高*/
+    position: relative;
+    margin-bottom:10px;
+    /* width: 70px; 这种方法有隐藏的bug*/         
+    /* height: 29px; */
+    /* line-height: 29px; */
+    /* text-align: center; */
+   
+}
+.userCard .welcome .triangle{
+    display: block;  
+    border: 10px solid transparent;
+    width: 0px;
+	border-left-color: #E6686A;
+    border-top-width: 0px;
+    position: absolute;
+    left: 4px;
+    top: 100%;
+}
+.userCard .picture{
+    float: left;
+    margin-right: 65px;
+}
+.userCard .text{
+    float: left;
+    width: 470px;
+}
+.userCard .text h1{
+    margin-top: 18px;
+}
+.userCard .text p{
+    margin-top: 3px;
+}
+.userCard .text hr{
+    margin: 20px 0px;
+}
+.userCard .pictureAndText{
+    padding: 50px;
+}
+.userCard dl dt,
+.userCard dl dd{
+    float: left;
+    padding: 5px 0px;
+}
+.userCard dl dt{
+    width: 30%;
+    font-weight: bold;
+}
+.userCard dl dd{
+    width: 70%;
+    color: #9da0a7;
+}
+.userCard>footer.media{
+    background: #E6686A;
+    text-align: center;
+} 
+.userCard>footer.media>a{
+    display: inline-block;
+    width: 40px;
+    padding: 5px 0;
+    line-height: 30px;
+    border-radius: 50%;   /*变圆*/
+    margin: 16px 16px;
+}
+.userCard>footer.media>a:hover{
+    background: #CF5D5F;
+}
+.userCard svg{
+    width: 30px;
+    height: 30px;
+    fill: white;
+    vertical-align: top;
+}
+body> main{
+    margin-top: -340px;
+}
+body > main .downloadResume{
+    display: inline-block;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 21px 55px;
+    border: 1px solid #CBCDCF;
+    background: #EFEFEF;
+    border-radius: 2px;
+    color: #3d4451;
+    font-weight: bold;
+    margin: 35px 0;
+    transition: box-shadow 0.2s;
+    
+}
+body > main .downloadResume:hover{
+    box-shadow: 0px 6px 14px 1px rgba(102,97,102,0.3);
+}
+body > main .downloadResume-wrapper{
+    text-align: center;
+}
+.selfIntroduction{
+    max-width: 940px;
+    margin-left: auto;   
+    margin-right: auto;
+    text-align: center;
+    font-family: kaiti;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+section.skills,
+section.portfolio{
+    max-width: 940px;
+    margin-left: auto;   
+    margin-right: auto;
+    margin-top: 60px;
+}
+section.skills > h2,
+section.portfolio > h2{
+    text-align: center;
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+section.skills h3{
+    font-size: 14px;
+    line-height: 1.1;
+    padding-right: 40px;
+}
+section.skills > ol{
+    background: white;
+    box-shadow: 0px 6px 14px 1px rgba(102,97,102,0.3);
+    padding: 42px 50px 10px;
+    margin-top: 30px;
+}
+section.skills > ol > li{
+    float: left;
+    width: 47%;
+    box-sizing: border-box;
+}
+section.skills > ol > li:nth-child(even){
+    float: right;
+}
+section.skills .progressBar{
+    height: 5px;
+    background: #FAE1E1;
+    border-radius: 5px;
+    margin: 5px 0 40px;
+}
+
+section.skills .progressBar .progress{
+    background: #E8676B;
+    width: 70%;
+    height: 100%;
+    border-radius: 5px;
+}
+section.portfolio{
+    text-align: center;
+    margin-bottom: 100px;
+}
+section.portfolio > nav{
+    text-align: center;
+}
+section.portfolio > nav > ol{
+    margin: 0 auto;
+    display: inline-block;
+    vertical-align: top;
+}
+section.portfolio > nav > ol > li{
+    float: left;
+    margin-left: 40px;
+    cursor: pointer;
+}
+section.portfolio > nav > ol > li:nth-child(1){
+    margin-left: 0;
+}
+section.portfolio > nav{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 30px;
+}
+section.portfolio > nav .bar{
+    background: white;
+    height: 5px;
+    margin-top:10px;
+    margin-bottom: 28px;
+    border-radius: 2px;
+}
+section.portfolio > nav .bar-inner{
+    height: 100%;
+    background: #E8676B;
+    width: 10%;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+section.portfolio > nav .bar.state-1 .bar-inner{
+    margin-left: 0;
+    width: 50px;
+}
+section.portfolio > nav .bar.state-2 .bar-inner{
+    margin-left: 75px;
+    width: 55px;
+}
+section.portfolio > nav .bar.state-3 .bar-inner{
+    margin-left: 160px;
+    width: 115px;
+}
+section.portfolio .works{
+    position: relative;
+
+}
+section.portfolio .works > .big,
+section.portfolio .works > .small{
+    position: absolute;
 }
