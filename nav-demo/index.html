@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>我的导航</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header></header>
+    <main>
+        <div class="wrapper" id="main1">
+
+        </div>
+    </main>
+    <footer></footer>
+    <script>
+        keys = {
+            '0':{0:'q',1:'w',2:'e',3:'r',4:'t',5:'y',6:'u',7:'i',8:'o',9:'p',length:10},
+            '1':{0:'a',1:'s',2:'d',3:'f',4:'g',5:'h',6:'j',7:'k',8:'l',length:9},
+            '2':{0:'z',1:'x',2:'c',3:'v',4:'b',5:'n',6:'m',length:7},
+            'length': 3
+        }
+        hash = {
+            'q':'qq.com',
+            'w':'weibo.com',
+            'e':'ele.com',
+            't':'tianya.com',
+            'y':'youtube.com',
+            'u':'uc.com',
+            'i':'iqiyi.com',
+            'o':'qpera.com',
+            'p':undefined,
+            'a':'acfun.com',
+            's':'suhu.com',
+            'z':'zhihu.com',
+            'm':'www.mcdonalds.com.cn'
+        }
+        // 取出localStorage中的 suibian 对应的 hash
+        hashInLocalStorage = JSON.parse(localStorage.getItem('suibian') || 'null')
+        if(hashInLocalStorage){
+            hash = hashInLocalStorage
+        }
+
+        // 遍历 keys, 生成kbd标签
+        index = 0
+        while(index< keys['length']){ // 0 1 2
+            div1 = document.createElement('div')
+            main1.appendChild(div1)
+            row = keys[index] // 第一个数组 第二个数组 第三个数组
+            index2 = 0
+            while(index2<row['length']){ // 0~9 0~8 0~6
+                kbd1 = document.createElement('kbd')
+                kbd1.textContent = row[index2]
+                button1 = document.createElement('button')
+                button1.textContent = '编辑'
+                button1.id = row[index2]
+                button1.onclick = function(suibianxie){  // 点这个按钮，就执行以下代码
+                    key = suibianxie['target']['id'] // suibianxie.target.id 就是用户点的目标的id
+                    userPrentfWeb = prompt('给我一个网址') // qq.com 
+                    hash[key] = userPrentfWeb // hash 变更
+                    localStorage.setItem('suibian',JSON.stringify(hash)) //把hash变成字符串存入localStorage中的一个叫做 suibian 的桶里 
+                                                                         //开发者工具-Application-storage-Local Storage 查看
+                }
+                kbd1.appendChild(button1)
+                div1.appendChild(kbd1)
+                index2 = index2+1
+            }
+            index = index+1
+        }
+
+        document.onkeypress = function(suibianqude){  //按这个键，就执行以下代码
+            key = (suibianqude['key']) // q w e ... ...拿到按的键
+            webside = hash[key]        // 得到这个键对应的网址
+            console.log(webside)       // 打印出来这个网站
+            //location.href = 'http://'+webside  // 当前地址栏的地址
+            window.open('http://'+webside, '_blank')  // 在新窗口打开
+        }
+    </script>
+</body>
+</html>
