@@ -22,15 +22,57 @@ kbd > button{
 kbd:hover > button{
     display: inline-block;
 }
+body{
+    background:grey url(./wall.jpg) no-repeat center center;
+    background-size: cover;
+}
 main{
     text-align: center;
+    display: flex; /*变成弹性盒*/
+    justify-content: center; /*左右居中*/
+    align-items: center; /*垂直居中*/
+    height: 100vh;
+    
 }
 #main1{
     display: inline-block;
 }
 #main1 > div:nth-child(2){
-    margin-left: 2em;
+    margin-left: -20px;
 }
 #main1 > div:nth-child(3){
-    margin-left: 4em;
+    margin-left: -80px;
+}
+.wrapper{
+    background: rgba(255,255,255,0.3);
+}
+.key{
+    width: 62px;
+    height: 50px;
+    background: linear-gradient(to bottom, #292929 0%,#111111 100%); 
+    border: 1px solid #373737;
+    color: #C5C5C5;
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px #1A1B1C, 0 0 0 2px #1F2020, 0 3px 0 2px #080808;
+    font-size: 16px;
+    font-family: 'Helvetica';
+    position: relative;
+}
+.key .text{
+    position: absolute;
+    left: 4px;
+    top: 2px;
+}
+.row{
+    margin:18px;
+}
+.row .key{
+    margin: 0 10px;
+}
+.key img{
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 4px;
+    bottom: 2px;
 }
