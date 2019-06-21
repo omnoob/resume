@@ -3,7 +3,8 @@
 
 <head>
   <title>傅豪的个人简历</title>
-  <link rel="stylesheet" href="./a.css">
+  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="./loading.css">
   <script src="//at.alicdn.com/t/font_1057546_b6uv0cpa9ri.js"></script>
   <style type="text/css">
     .icon {
@@ -12,11 +13,25 @@
        fill: currentColor;
        overflow: hidden;
     }
+    .site-welcome{
+      display: none;
+      position: fixed;
+      top: 0;left: 0;width: 100%;height: 100%;
+      background: #888;
+      z-index: 1;
+      justify-content: center;    /*居中*/
+      align-items: center;        /*居中*/
+    }
+    .site-welcome.active{
+      display: flex;
+    }
 </style>
 </head>
 
   <body>
-      
+     <div id="siteWelcome" class="site-welcome active">
+      <div class="loading"></div> 
+     </div>
     <div class="topNavBar">
       <div class="topNavBar-inner clearfix">
         <a href="#" class="logo" alt="logo" style="float: left;">
@@ -185,6 +200,9 @@
 
 
     </section>
+    <script>
+      siteWelcome.classList.remove('active')
+    </script>
   </body>
 </html>
 
