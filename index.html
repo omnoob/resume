@@ -46,10 +46,20 @@
               <a href="#">技能</a>
             </li>
             <li>
-              <a href="#">作品</a>
+              <a class="menuTigger" href="#">作品</a>
+              <ul class="submenu">
+                <li>作品1</li>
+                <li>作品2</li>
+                <li>作品3</li>
+              </ul>
             </li> 
             <li>
-              <a href="#">博客</a>
+              <a class="menuTigger" href="#">博客</a>
+              <ul class="submenu">
+                  <li>博客1</li>
+                  <li>博客2</li>
+                  <li>博客3</li>
+                </ul>
             </li>            
             <li>
               <a href="#">日历</a>
@@ -210,6 +220,17 @@
           topNavBar.classList.add('sticky')
         }else{
           topNavBar.classList.remove('sticky')
+        }
+      }
+      let aTags = document.getElementsByClassName('menuTigger')
+      for(let i=0; i<aTags.length; i++){
+        aTags[i].onmouseenter = function(x){
+          let a = x.currentTarget
+          let brother = a.nextSibling
+          while(brother.nodeType === 3){  //3代表文本，1代表节点
+            brother = brother.nextSibling
+          }
+          console.log(brother)
         }
       }
     </script>

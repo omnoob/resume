@@ -63,6 +63,7 @@ h1,h2,h3,h4,h5,h6{
     float: left;         /*配合父亲的clearfix使列表横过来*/
     margin-left: 17px;   /*导航栏的间距*/
     margin-right: 17px;
+    position: relative;
 }
 .topNavBar nav>ul>li>a{
     font-size: 12px;    /*字体大小*/
@@ -94,6 +95,16 @@ h1,h2,h3,h4,h5,h6{
     100%{
         width: 100%;
     }
+}
+.topNavBar .submenu{
+    display: none;
+    position: absolute;
+}
+.topNavBar .submenu.active{
+    display: block;
+}
+.topNavBar .submenu > li{
+    white-space: nowrap; /*不要换行*/
 }
 .topNavBar .logo{
     font-size: 24px;  /*字体大小*/
