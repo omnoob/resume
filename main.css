@@ -74,12 +74,27 @@ h1,h2,h3,h4,h5,h6{
     padding-top: 5px;
     padding-bottom: 5px;  /*5像素的内下边距，对称，所以还有5像素的内上边距*/
     display:block;  /*使li可以包裹住a*/
-
+    position: relative;
 }
-.topNavBar nav>ul>li>a:hover{
-    border-bottom: 3px solid #e06567;  /*粉色下边框*/
+.topNavBar nav>ul>li>a:hover::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #e06567;
+    height: 3px;
+    animation: menuSlide 0.5s;
 }
-
+@keyframes menuSlide{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 100%;
+    }
+}
 .topNavBar .logo{
     font-size: 24px;  /*字体大小*/
     padding-top: 3px;
