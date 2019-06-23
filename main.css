@@ -77,7 +77,7 @@ h1,h2,h3,h4,h5,h6{
     display:block;  /*使li可以包裹住a*/
     position: relative;
 }
-.topNavBar nav>ul>li>a:hover::after{
+.topNavBar nav>ul>li.active>a::after{
     content: '';
     display: block;
     position: absolute;
@@ -99,12 +99,28 @@ h1,h2,h3,h4,h5,h6{
 .topNavBar .submenu{
     display: none;
     position: absolute;
+    right: 0;
+    background: white;
+    color: #3d4451;
+    top: 100%;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
-.topNavBar .submenu.active{
+
+.topNavBar li.active > .submenu{
     display: block;
+    animation: submenuSlide 0.3s;
+}
+@keyframes submenuSlide{
+    0%{
+        margin-right: 100% 
+    }
+    100%{
+        margin-right: 0% 
+    }
 }
 .topNavBar .submenu > li{
     white-space: nowrap; /*不要换行*/
+    padding: 5px 10px
 }
 .topNavBar .logo{
     font-size: 24px;  /*字体大小*/
