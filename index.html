@@ -241,7 +241,24 @@
           let href = a.getAttribute('href')
           let element = document.querySelector(href)
           let top = element.offsetTop // 获得目标距离最顶部的距离，不会随滚动改变
-          window.scrollTo(0, top - 80)
+          // let top = document.querySelector(x.currentTarget.getAttronitr('href')).offsetTop
+          // 上面四句let可以合为注释的一句，大脑里要有个栈，可以同时存好几句代码才可以写注释这种形式
+
+          let n = 20 // 一共动多少次
+          let duration = 500/n // 多长时间动一次 duration：持续时间
+          let currentTop = window.scrollY // 当前高度
+          let targetTop = top - 80 // 目标高度
+          let distance = (targetTop - currentTop)/ n // 每次移动的距离 distance：距离
+          let i = 0
+          let id = setInterval(()=> {
+            if(i===n){
+              window.clearInterval(id)
+              return
+            }
+            i = i + 1
+            window.scrollTo(0, currentTop + distance * i)
+          },duration)
+
         }
       }
     </script>
